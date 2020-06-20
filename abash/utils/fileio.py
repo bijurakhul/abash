@@ -1,6 +1,6 @@
 from abash.utils.display import DisplayText
 
-class FileHandling(DisplayText):
+class FileHandler(DisplayText):
   file_handler = None
   file_data = None
 
