@@ -1,16 +1,11 @@
 class DisplayText:
-  SUCCESSMSG = 0
-  FAILUREMSG = 1
+  SUCCESSMSG = "\033[32m"
+  FAILUREMSG = "\033[31m"
+  WARNINGMSG = "\033[33m"
+  RESETCOLOR = "\033[37m"
 
-  text_colors = {
-    "TGREEN": "\033[32m",
-    "TWHITE": "\033[37m",
-    "TRED": "\033[31m" 
-  }
-
-  def text(self, msg, status = SUCCESSMSG):
-    status_color = self.text_colors["TGREEN"] if status == self.SUCCESSMSG else self.text_colors["TRED"]
-    status_symbol = "+" if status == self.SUCCESSMSG else "-"
-    text_reset = self.text_colors["TWHITE"]
+  def text(self, msg, status_color = SUCCESSMSG):
+    status_symbol = "+" if status_color == self.SUCCESSMSG else "-"
+    text_reset = self.RESETCOLOR
 
     print(f"{status_color}[{status_symbol}]{text_reset} {msg}")
